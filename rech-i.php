@@ -100,15 +100,18 @@
                                 $recupNomDom = mysqli_fetch_assoc(mysqli_query($dbConn, "SELECT dom_libelle FROM domaine WHERE dom_id = " . $idDom));
                                 $nomDom = $recupNomDom['dom_libelle'];
                                 $QueryInter = "SELECT * FROM intervenant";
+                                
+                                print('<h4>Domaine : ' .$nomDom . '</h4>');
+                                
                                 if ($niveauArr[$domIndex] == 0)
                                 {
-                                    $QueryInter = "SELECT * FROM intervenant INNER JOIN estcompetent ON int_id = comp_idintervant INNER JOIN niveau ON comp_idniveau = niv_id WHERE comp_iddomaine = " .$idDom. " ORDER BY comp_iddomaine";
+                                    $QueryInter = "SELECT * FROM intervenant INNER JOIN estcompetent ON int_id = comp_idintervenant INNER JOIN niveau ON comp_idniveau = niv_id WHERE comp_iddomaine = " .$idDom. " ORDER BY comp_iddomaine";
                                 }
                                 else
                                 {
-                                    $QueryInter = "SELECT * FROM intervenant INNER JOIN estcompetent ON int_id = comp_idintervant INNER JOIN niveau ON comp_idniveau = niv_id WHERE comp_idniveau = " .$niveauArr[$domIndex]. " AND comp_iddomaine = " .$idDom;
+                                    $QueryInter = "SELECT * FROM intervenant INNER JOIN estcompetent ON int_id = comp_idintervenant INNER JOIN niveau ON comp_idniveau = niv_id WHERE comp_idniveau = " .$niveauArr[$domIndex]. " AND comp_iddomaine = " .$idDom;
                                 }
-                                print('<h4>Domaine : ' .$nomDom . '</h4>');
+                                
                                 print('<ul id="listeInter">');
                                 
                                 $Result = mysqli_query($dbConn, $QueryInter);
