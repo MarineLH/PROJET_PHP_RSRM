@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset= "utf-8" />
-        <link rel = "stylesheet" href="css/index.css"/>
+        <link rel = "stylesheet" href="css/insc-cont.css"/>
         <link rel = "stylesheet" href="css/global.css"/>
         <title> Inscription - Contact </title>
       

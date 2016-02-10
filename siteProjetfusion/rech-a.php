@@ -2,9 +2,9 @@
 <html>
     <head>
         <meta charset= "utf-8" />
-        <link rel = "stylesheet" href="css/recherche.css"/>
+        <link rel = "stylesheet" href="css/rech-a.css"/>
         <link rel = "stylesheet" href="css/global.css"/>
-        <title> Recherche </title>
+        <title> Recherche - Annonce </title>
       
     </head>
     <script src="script/global.js"></script>
@@ -32,9 +32,7 @@
                 </div>
             </header>
             <div class="wrapper">
-                <form action='<?php $_PHP_SELF ?>' method="get">
-                    
-                </form>
+                Salut je vais bien
                 <div class="push"></div>
             </div>
         </div>   

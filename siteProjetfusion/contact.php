@@ -2,9 +2,9 @@
 <html>
     <head>
         <meta charset= "utf-8" />
-        <link rel = "stylesheet" href="css/insc-o.css"/>
+        <link rel = "stylesheet" href="css/contact.css"/>
         <link rel = "stylesheet" href="css/global.css"/>
-        <title> Inscription - Organisme </title>
+        <title> Contact </title>
       
     </head>
     <script src="script/global.js"></script>
