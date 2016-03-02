@@ -32,8 +32,27 @@
                 </div>
             </header>
             <div class="wrapper">
-                <form action='<?php $_PHP_SELF ?>' method="get">
-                    
+                <form action='<?php $_PHP_SELF ?>' method="post">
+                    <fieldset><legend>Entrez votre adresse e-mail</legend>
+                        <input type="textbox" name="mail" required autocomplete="off"/>
+                        <input type="button" name="valider" value="Envoyer"/>
+                    </fieldset>
+                    <?php
+                        $dbConn = mysqli_connect('localhost', 'root', 'toor');
+                        mysqli_select_db($dbConn, 'compfundationdb');
+                      
+                      
+                        if(!empty($_POST))
+                        {
+                            $SelectContact = 'SELECT ctc_email FROM contact where ctc_email ='.$_POST['mail'];
+                            $queryCtc = mysqli_query($dbConn, $SelectContact);
+                            if($row = mysqli_fetch_row($queryCtc))
+                            {
+                                print($row[0]);
+                                print('ouech');
+                            }
+                        }
+                    ?>
                 </form>
                 <div class="push"></div>
             </div>

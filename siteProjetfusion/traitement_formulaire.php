@@ -1,48 +1,4 @@
-<!DOCTYPE HTML>
-<html>
-    <head>
-        <meta charset= "utf-8" />
-		
-        <link rel = "stylesheet" href="css/index.css"/>
-        <link rel = "stylesheet" href="css/global.css"/>
-		<link rel = "stylesheet" href="css/contact.css"/>
-        <title> Contact </title>
-    </head>
-    <script src="script/global.js"></script>
-    <body>
-        <div class="contenu">
-            <header>
-                <div class="top">
-                    <img href="index.php" src="images/logofinal.png" width="200px" height="200px"/>
-                    <h1 id ="slogan">Comp Foundation<br/>Opportunity, Quality, Achievement</h1>
-                </div>
-                <div class="nav">
-                    <ul id="menu">
-                        <li><a href="index.php">Accueil</a>
-                        <li><a>Inscription</a>
-                            <ul>
-                                <li><a href="insc-i.php">Intervenant</a></li>
-                                <li><a href="insc-o.php">Organisme</a></li>
-                                <li><a href="insc-cont-org.php">Contact d'organisme</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="recherche.php">Recherche</a></li>
-                        <li><a href="post-a.php">Poster une annonce</a></li>
-                        <li><a href="contact.php">Contact</a>
-                    </ul>
-                </div>
-            </header>
-            <div class="wrapper">
-				
-			
-                
-			
-			
-			
-			<div class="traitement">
-			
-			
-			<?php
+<?php
 /*
 	********************************************************************************************
 	CONFIGURATION
@@ -73,6 +29,8 @@ if (!isset($_POST['envoi']))
 {
 	// formulaire non envoyé
 	echo '<p>'.$message_erreur_formulaire.'</p>'."\n";
+    //METTRE UN ALERT
+    print('<meta http-equiv="refresh" content="3;url=contact.php" />');
 }
 else
 {
@@ -145,10 +103,13 @@ else
 		if (ini_set($message, $headers))
 		{
 			echo '<p>'.$message_envoye.'</p>'."\n";
+                //METTRE UN ALERT
 		}
 		else
 		{
 			echo '<p>'.$message_non_envoye.'</p>'."\n";
+                //METTRE UN ALERT
+            print('<script>alert("");</script>');
 			print('<meta http-equiv="refresh" content="3;url=contact.php" />');
 		}
 	}
@@ -156,18 +117,9 @@ else
 	{
 		// une des 3 variables (ou plus) est vide ...
 		echo '<p>'.$message_formulaire_invalide.' <a href="contact.php">Retour au formulaire</a></p>'."\n";
+            //METTRE UN ALERT
 		
 	};
 }; // fin du if (!isset($_POST['envoi']))
 	
 ?>
-</div>
-
-<div class="push"></div>
-            </div>
-        </div>   
-        <div class="footer">
-            <a href="" onclick="funcMentionsLegales()">Mentions légales</a> --- Copyright &#169 Comp Foundation - 2015
-        </div>
-    </body>
-</html>
