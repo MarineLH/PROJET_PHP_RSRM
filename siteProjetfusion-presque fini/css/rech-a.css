@@ -1,0 +1,42 @@
+.tableAnn, .tableAnn td, .tableAnn th{
+	border: solid 1px black;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+.tabledom{
+	border: solid 1px black;
+	padding: 10px;
+}
+
+.tabledom td{
+	padding-left : 10px;
+	padding-right: 10px;
+    padding-bottom: 10px;
+    
+}
+.repondre{
+	text-decoration: none;
+	color: white;
+	background-color: #863535;
+
+}
+
+input[type=text] {
+    width: 150px;
+    vertical-align : middle;
+}
+
+
+.checkbox{
+   
+    width : 30px;
+}
+
+.rechercher{
+    width : 100px;
+    margin-top: 20px;
+    display: block;
+    position: relative;
+    margin-left: 250px;
+}
