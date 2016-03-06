@@ -114,8 +114,9 @@
                         ?>
                         
                         
-                        <input class="btVal" type="submit" text="Valider">
+                        
 						</fieldset>
+                        <input class="btVal" type="submit" text="Valider">
                     </div>
                 </form>
                 <?php

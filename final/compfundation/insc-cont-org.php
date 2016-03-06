@@ -121,9 +121,7 @@
 				?>
 
             <div class = "bouton">
-                <a href="insc-o.php"><input class = "valider" type ="submit" value="Valider !"></a>
-				</fieldset>
-				</fieldset>
+                <input class = "btVal" type ="submit" value="Valider">
             </div>
         </form>
     </div>

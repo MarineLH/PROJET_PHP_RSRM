@@ -5,8 +5,8 @@
 }
 
 .tabledom{
-	border: solid 1px black;
-	padding: 10px;
+    
+    border: none;
 }
 
 .tabledom td{
@@ -22,14 +22,8 @@
 
 }
 
-input[type=text] {
-    width: 150px;
-    vertical-align : middle;
-}
-
-
-.checkbox{
-   
+.chkbox{
+    
     width : 30px;
 }
 
@@ -39,4 +33,9 @@ input[type=text] {
     display: block;
     position: relative;
     margin-left: 250px;
+}
+.competences{
+    height :100%;
+    width : fit-content;
+    margin : auto;
 }

@@ -2,16 +2,17 @@ html, body{
     max-width: 1200px;
     margin: auto;
     padding: 0;
-    background-image:-webkit-linear-gradient(top, #f4f4f4 0%, #e5e5e5 100%);
-    background-image:linear-gradient(to bottom, #f4f4f4 0%, #e5e5e5 100%);
+    background-color: #fff1c4;
     height: 100%;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
     font-family: arial;
    
 }
+h4, h2{
+	color : #411400;
+}
+
 .top{
-    background-color: #eae8e8;
+    background-color: #411400;
     margin: auto;
     padding: 15px;
     height: 200px;
@@ -29,6 +30,7 @@ html, body{
     margin-right: 20px;
     text-align: center;
     font-style: italic bold;
+	color : #ffeba8;
 }
 #menu, #menu ul{
     padding:0;
@@ -60,18 +62,17 @@ html, body{
 }
 /* background des liens menus */
 #menu, #menu li{
-    background-color: #6f2424;
-    background-image:-webkit-linear-gradient(top, #CA5F60 0%, #B62122 100%);
-    background-image:linear-gradient(to bottom, #CA5F60 0%, #B62122 100%);
+    background-image:-webkit-linear-gradient(top, #803c02 0%, #411400 100%);
+    background-image:linear-gradient(to bottom, #803c02 0%, #411400 100%);
 }
 /* background des liens sous menus */
 #menu li li{
-    background:#CA5F60;
+    background:#efc067;
 }
 
 /* background des liens menus et sous menus au survol */
 #menu li:hover, #menu li li:hover{
-    background:#d44c0f;
+    background:#904200;
 }
 /* les a href */
 #menu a{
@@ -95,18 +96,31 @@ html, body{
     /* equal to footer height */
     margin: 0 auto -40px;
 }
+
+   /*background-image:-webkit-linear-gradient(top, #ffeba8 0%, #ffefb9 100%);
+    background-image:linear-gradient(to bottom, #ffeba8 0%, #ffefb9 100%);*/
 .wrapper{
     min-height: 400px;
-    background-color: #eae8e8;
+	background-image:-webkit-linear-gradient(top, #ffeba8 0%, #ffefb9 100%);
+    background-image:linear-gradient(to bottom, #ffeba8 0%, #ffefb9 100%);
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
     padding: 10px;
+	overflow: auto;
 }
 .footer, .push{
     line-height: 40px;
     height: 40px; 
 }
 .footer{
-    background-color: #B62122;
+    background-color: #482100;
     text-align: center;
+}
+.btVal{
+    width : 100px;
+    margin-top: 20px;
+    display: block;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
 }

@@ -42,7 +42,7 @@
                 {
                 ?>
                 <form method="post" action="<?php $_PHP_SELF ?>">
-				    <fieldset><legend>Connexion : entrez votre email</legend>
+				    <fieldset><legend><h4>Connexion : entrez votre email</h4></legend>
                     <p><label for="email">Email : </label><span><input type="text" name="email" tabindex="1" required autocomplete="off"/></span><input value="Se connecter" class="button" name="bt_conn" type="submit"/></p>
                     <p>Première visite ? Inscrivez-vous ! <a href="insc-i.php">Intervenant</a> ou <a href="insc-o.php">Organisme</a></p>
                     </fieldset>

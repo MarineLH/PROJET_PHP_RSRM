@@ -90,9 +90,10 @@
 						  print("</tr></table>");
                         	mysqli_free_result($Querydomaine);
                         	?>
-                        	<input class="btVal" type="submit" text="Valider">
+                        	
                         	</fieldset>
-                    	</div> 
+                    	   <input class="btVal" type="submit" text="Valider">
+                        </div> 
                     </form>
                 </div>
                 <div class="push"></div>

@@ -76,7 +76,7 @@
                         }
                         print("</tr></table>");
                         mysqli_free_result($Querydomaine);
-                        print('<input class="btVal" type="submit" value="rechercher"></fieldset></div></form>');
+                        print('<input class="btVal" type="submit" value="Rechercher"></fieldset></div></form>');
                 }
                 else
                 {
@@ -85,8 +85,14 @@
                         if(empty($_POST['checkbox']))
                         {
                             print('<script>alert("Il faut cocher au moins une compétence pour effectuer la recherche.");</script>');  
+                            unset($_POST);
+                            print('<meta http-equiv="refresh" content="0;url=rech-i.php" />');
                         }
                         else{
+                            print
+                            ('<form action="pdf.php" method="post">
+                              ');
+                            
                             $niveauArr = $_POST['niveau'];
                             /*
                             print_r($_POST['checkbox']);
@@ -114,7 +120,8 @@
                                 }
                                 print('</ul>');
                             }
-                            print('<p>Vous ne trouvez personne ? <a href="post-a.php">Déposez une annonce !</a></p>');
+                            print('<input type ="submit" value= "Voir le PDF" name = "buttonpdf"/><p>Vous ne trouvez personne ? <a href="post-a.php">Déposez une annonce !</a></p>');
+                            print('</form>');
                             mysqli_close($dbConn);
                         }   
                     }              
