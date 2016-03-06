@@ -96,10 +96,6 @@
                             
                             $niveauArr = $_POST['niveau'];
                             
-                            print_r($_POST['checkbox']);
-                            print('<br>');
-                            print_r($_POST['niveau']);
-                            print('<br>');
                             foreach($_POST['checkbox'] as $domIndex=>$idDom)
                             {
                                 if($idDom == 0)
@@ -119,9 +115,6 @@
                                     {
                                         $QueryInter = "SELECT * FROM intervenant INNER JOIN estcompetent ON int_id = comp_idintervenant INNER JOIN niveau ON comp_idniveau = niv_id WHERE comp_idniveau = " .$niveauArr[$domIndex]. " AND comp_iddomaine = " .$idDom;
                                     }
-                                    print($QueryInter . '<br>');
-                                    print($idDom . '<br>');
-                                    print($niveauArr[$domIndex]);
                                     print('<h4>Domaine : ' .$nomDom . '</h4>');
                                     print('<ul id="listeInter">');
 
