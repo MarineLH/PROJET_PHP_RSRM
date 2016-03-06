@@ -52,10 +52,11 @@
                         while($row = mysqli_fetch_assoc($Querydomaine))
                         {
                             
-                            print("<td><input name='checkbox[]' class ='checkbox' type='checkbox' value='".$row['dom_id']."'>".$row['dom_libelle']."");
+                            print("<td><input name='checkbox[".$row['dom_id']."]' type='hidden' value='0'><input name='checkbox[".$row['dom_id']."]' class ='checkbox' type='checkbox' value='".$row['dom_id']."'/>".$row['dom_libelle']);
+                            
                             
                             $Querylvl = mysqli_query($dbConn, "SELECT * FROM niveau");
-                            print('<select class="niveau" name="niveau[]" >');
+                            print('<select class="niveau" name="niveau['.$row['dom_id'].']" >');
                             print('<option value="0">Tous les niveaux</option>');
                             while($row1 = mysqli_fetch_assoc($Querylvl))
                             {
@@ -94,35 +95,49 @@
                               ');
                             
                             $niveauArr = $_POST['niveau'];
-                            /*
+                            
                             print_r($_POST['checkbox']);
-                            print_r($_POST['niveau']);*/
+                            print('<br>');
+                            print_r($_POST['niveau']);
+                            print('<br>');
                             foreach($_POST['checkbox'] as $domIndex=>$idDom)
                             {
-                                $recupNomDom = mysqli_fetch_assoc(mysqli_query($dbConn, "SELECT dom_libelle FROM domaine WHERE dom_id = " . $idDom));
-                                $nomDom = $recupNomDom['dom_libelle'];
-                                $QueryInter = "SELECT * FROM intervenant";
-                                if ($niveauArr[$domIndex] == 0)
+                                if($idDom == 0)
                                 {
-                                    $QueryInter = "SELECT * FROM intervenant INNER JOIN estcompetent ON int_id = comp_idintervenant INNER JOIN niveau ON comp_idniveau = niv_id WHERE comp_iddomaine = " .$idDom. " ORDER BY comp_iddomaine";
+                                    
                                 }
                                 else
                                 {
-                                    $QueryInter = "SELECT * FROM intervenant INNER JOIN estcompetent ON int_id = comp_idintervenant INNER JOIN niveau ON comp_idniveau = niv_id WHERE comp_idniveau = " .$niveauArr[$domIndex]. " AND comp_iddomaine = " .$idDom;
+                                    $recupNomDom = mysqli_fetch_assoc(mysqli_query($dbConn, "SELECT dom_libelle FROM domaine WHERE dom_id = " . $idDom));
+                                    $nomDom = $recupNomDom['dom_libelle'];
+                                    $QueryInter = "SELECT * FROM intervenant";
+                                    if ($niveauArr[$domIndex] == 0)
+                                    {
+                                        $QueryInter = "SELECT * FROM intervenant INNER JOIN estcompetent ON int_id = comp_idintervenant INNER JOIN niveau ON comp_idniveau = niv_id WHERE comp_iddomaine = " .$idDom. " ORDER BY comp_iddomaine";
+                                    }
+                                    else
+                                    {
+                                        $QueryInter = "SELECT * FROM intervenant INNER JOIN estcompetent ON int_id = comp_idintervenant INNER JOIN niveau ON comp_idniveau = niv_id WHERE comp_idniveau = " .$niveauArr[$domIndex]. " AND comp_iddomaine = " .$idDom;
+                                    }
+                                    print($QueryInter . '<br>');
+                                    print($idDom . '<br>');
+                                    print($niveauArr[$domIndex]);
+                                    print('<h4>Domaine : ' .$nomDom . '</h4>');
+                                    print('<ul id="listeInter">');
+
+                                    $Result = mysqli_query($dbConn, $QueryInter);
+                                    while($row2 = mysqli_fetch_assoc($Result))
+                                    {
+                                        print('<a href="contact.php?idInt='.$row2['int_id'].'"><li>'.$row2['int_nom'].' '.$row2['int_prenom']. ' ; Niveau : '. $row2['niv_libelle'] .'</li></a>');
+                                    }
+                                    print('</ul>');
                                 }
-                                print('<h4>Domaine : ' .$nomDom . '</h4>');
-                                print('<ul id="listeInter">');
-                                
-                                $Result = mysqli_query($dbConn, $QueryInter);
-                                while($row2 = mysqli_fetch_assoc($Result))
-                                {
-                                    print('<a href="contact.php?idInt='.$row2['int_id'].'"><li>'.$row2['int_nom'].' '.$row2['int_prenom']. ' ; Niveau : '. $row2['niv_libelle'] .'</li></a>');
-                                }
-                                print('</ul>');
                             }
-                            print('<input type ="submit" value= "Voir le PDF" name = "buttonpdf"/><p>Vous ne trouvez personne ? <a href="post-a.php">Déposez une annonce !</a></p>');
+                            print('<input type ="submit" value= "Voir le PDF" name = "buttonpdf"/>
+                            <p>Vous ne trouvez personne ? <a href="post-a.php">Déposez une annonce !</a></p>');
                             print('</form>');
                             mysqli_close($dbConn);
+                        
                         }   
                     }              
                 }
