@@ -121,6 +121,7 @@
                                     $Result = mysqli_query($dbConn, $QueryInter);
                                     while($row2 = mysqli_fetch_assoc($Result))
                                     {
+                                        print('<input type="hidden" name="idintervenant['.$row2['int_id'].']" value="'.$row2['int_id'].'"/>');
                                         print('<a href="contact.php?idInt='.$row2['int_id'].'"><li>'.$row2['int_nom'].' '.$row2['int_prenom']. ' ; Niveau : '. $row2['niv_libelle'] .'</li></a>');
                                     }
                                     print('</ul>');

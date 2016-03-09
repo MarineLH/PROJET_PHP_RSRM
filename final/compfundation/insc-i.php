@@ -66,13 +66,16 @@
 						  	while($row = mysqli_fetch_assoc($Querydomaine))
                         	{
                             
-                            	print("<td><input name='checkbox[]' class ='checkbox' type='checkbox' value='".$row['dom_id']."'>".$row['dom_libelle']."");
-                            
-                            	$Querylvl = mysqli_query($dbConn, "SELECT * FROM niveau");
-                            	print('<select class="niveau" name="niveau[]" >');
+                            	print("<td><input name='checkbox[".$row['dom_id']."]' class ='checkbox' type='checkbox' value='".$row['dom_id']."'/>".$row['dom_libelle']."");
+                                
+                                
+                            	$Querylvl = mysqli_query($dbConn, "SELECT * FROM niveau");   	
+                                print('<select class="niveau" name="niveau['.$row['dom_id'].']>');
+                                print('<option value="1">Débutant</option>'); 
                             	while($row1 = mysqli_fetch_assoc($Querylvl))
                             	{
 									print('<option value="'. $row1['niv_id'] . '">'. $row1['niv_libelle'] . '</option>'); 
+									
 								}
                             
 								print('</select>');
@@ -131,14 +134,15 @@
             $lastIDar = mysqli_fetch_array($selectLastId);
             $lastID = $lastIDar[0];
             $niveauArr = $_POST['niveau'];
-            /*print_r($lastID);
+            
+            /*
             print_r($_POST['checkbox']);
             print_r($_POST['niveau']);*/
             
-            
             foreach($_POST['checkbox'] as $domIndex=>$idDom)
             {
-                $SQLQuery = "INSERT INTO estcompetent(comp_iddomaine, comp_idniveau, comp_idintervant) VALUES('" . $idDom . "','".$niveauArr[$domIndex]."','" . $lastID . "')";
+                $SQLQuery = "INSERT INTO estcompetent(comp_iddomaine, comp_idniveau, comp_idintervenant) VALUES('$idDom','$niveauArr[$domIndex]','$lastID')";
+                //print('<script>alert("'.$idDom . ' ' . $niveauArr[$domIndex] . ' ' . $lastID . '");</script>');
                 mysqli_query($dbConn, $SQLQuery);
                 
             }
